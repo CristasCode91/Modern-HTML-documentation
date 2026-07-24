@@ -1,1 +1,3 @@
+# Modern HTML documentation website.
+
 A very simple HTML documentation website, covering the essentials. Feel free to explore!
