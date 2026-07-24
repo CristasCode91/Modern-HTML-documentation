@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern Web Core Essentials">
+    <title>Modern Web Essentials</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2 style="border: none; font-size: 1.2rem; color: var(--text-main);">DevDocs</h2>
+        <ul class="nav-list">
+            <li style="font-weight: bold; color: var(--text-main); margin-top: 1rem;">Quick Ref</li>
+            <li><a href="#ref-tags">Core Tags & Semantics</a></li>
+            <li><a href="#ref-acc">Accessibility (a11y)</a></li>
+            <li style="font-weight: bold; color: var(--text-main); margin-top: 1.5rem;">Deep Dives</li>
+            <li><a href="#css">CSS Layouts</a></li>
+            <li><a href="#js">JS DOM</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Modern Web Core</h1>
+            <p>The essential patterns for semantic, accessible, and performant web applications.</p>
+        </header>
+
+        <!-- QUICK REF SECTION -->
+        <section id="ref-tags">
+            <h2>1. Quick Ref: Semantics & Media</h2>
+            <div class="ref-grid">
+                <!-- Text Content -->
+                <div class="card">
+                    <h3>Text & Structure</h3>
+                    <div class="ref-item">
+                        <h4><code>&lt;p&gt;</code> <span class="tag-pill">Block</span></h4>
+                        <p>The standard for paragraphs. Never use <code>&lt;br&gt;</code> to create space use CSS
+                            margins.</p>
+                    </div>
+                    <div class="ref-item">
+                        <h4><code>&lt;strong&gt;</code> <span class="tag-pill">Semantic</span></h4>
+                        <p>Use for <strong>important</strong> text. <code>&lt;b&gt;</code> is strictly for visual
+                            bolding without added meaning.</p>
+                    </div>
+                    <div class="ref-item">
+                        <h4><code>&lt;em&gt;</code> <span class="tag-pill">Semantic</span></h4>
+                        <p>Use for <em>emphasis</em>. <code>&lt;i&gt;</code> is for visual italics (e.g., technical
+                            terms).</p>
+                    </div>
+                </div>
+
+                <!-- Links & Media -->
+                <div class="card">
+                    <h3>Navigation & Media</h3>
+                    <div class="ref-item">
+                        <h4><code>&lt;a href="..."&gt;</code> <span class="tag-pill">Anchor</span></h4>
+                        <p>The <code>href</code> attribute is mandatory for a valid link. Always use descriptive text,
+                            not "click here".</p>
+                    </div>
+                    <div class="ref-item">
+                        <h4><code>&lt;img&gt;</code> <span class="tag-pill">Self-Closing</span></h4>
+                        <p>Requires an <code>alt</code> attribute for accessibility. This is non-negotiable.</p>
+                        <pre><code>&lt;img src="hero.jpg" alt="A sunset over mountains"&gt;</code></pre>
+                    </div>
+                    <div class="ref-item">
+                        <h4><code>&lt;source&gt;</code> <span class="tag-pill">Media</span></h4>
+                        <p>Used inside <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> to provide multiple
+                            formats (WebM/MP4) for compatibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCESSIBILITY SECTION -->
+        <section id="ref-acc">
+            <h2>2. Accessibility (a11y)</h2>
+            <p>Accessibility is not an "extra"—it is a requirement for a professional product.</p>
+
+            <div class="card">
+                <h3>The "Big Three" Rules</h3>
+                <div class="ref-item">
+                    <h4>Alt Text <span class="tag-pill">Visuals</span></h4>
+                    <p>Every image needs an <code>alt</code>. If the image is purely decorative (like a background
+                        swirl), use an empty alt: <code>alt=""</code>. This tells screen readers to skip it.</p>
+                </div>
+                <div class="ref-item">
+                    <h4>ARIA Labels <span class="tag-pill">Context</span></h4>
+                    <p>If a button only has an icon (no text), use <code>aria-label="Close Menu"</code> so a screen
+                        reader can describe the button's action.</p>
+                </div>
+                <div class="ref-item">
+                    <h4>Focus Indicators <span class="tag-pill">Navigation</span></h4>
+                    <p>Never use <code>outline: none;</code> in CSS unless you are replacing it with a custom, highly
+                        visible <code>:focus</code> state. Keyboard users need to see where they are.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS SECTION -->
+        <section id="css">
+            <h2>3. Modern CSS Layouts</h2>
+            <div class="card">
+                <h3>Flexbox (One-Dimensional)</h3>
+                <p>Best for rows OR columns (e.g., Navbars, centering an item).</p>
+                <pre>
+                <code>.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} </code></pre>
+            </div>
+
+            <div class="card">
+                <h3>Grid (Two-Dimensional)</h3>
+                <p>Best for full-page layouts and complex galleries.</p>
+                <pre><code>.dashboard {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+} </code></pre>
+            </div>
+        </section>
+
+        <!-- JS SECTION -->
+        <section id="js">
+            <h2>4. Modern JavaScript (DOM)</h2>
+            <div class="card">
+                <h3 id="js-status">Current State: Idle</h3>
+                <button class="btn" id="action-btn">Trigger Mutation</button>
+                <p style="margin-top:1rem; font-size: 0.8rem;">Demonstrates selecting a node and updating its properties
+                    via JS.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer
+        style="padding: 2rem; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); background: white;">
+        <p>&copy; 2026 Modern Web Essentials</p>
+    </footer>
+
+    <script src="./js/script.js">
+
+    </script>
+</body>
+
+</html>
